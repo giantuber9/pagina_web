@@ -1,0 +1,48 @@
+/* Logo redondo*/
+.navbar-logo {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* icono del carrito un poco más grande y separado */
+.bi-cart {
+  font-size: 1.5rem; /* Tamaño */
+  margin-right: 5px; /* Espacio */
+}
+
+/* Estilo para los links del navbar */
+.navbar-nav .nav-link {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Hover para que se vea mejor */
+.navbar-nav .nav-link:hover {
+  color: #f8f9fa !important; /* Color claro al pasar el mouse */
+}
+
+/* Separación entre items del navbar */
+.navbar-nav .nav-item {
+  margin-left: 15px;
+}
+
+/* Active link */
+.navbar-nav .nav-link.active {
+  color: #f8f9fa;
+}
+
+.navbar-nav .nav-link {
+  border: 1px solid #ffffff;  /* borde opcional */
+  border-radius: 10px;        /* hace las esquinas redondeadas */
+  padding: 6px 12px;          /* da más espacio como botón */
+  margin: 0 5px;              /* separa los botones entre sí */
+  transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* efecto al pasar el mouse */
+}
+

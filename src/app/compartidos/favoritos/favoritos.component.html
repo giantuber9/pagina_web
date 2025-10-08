@@ -1,0 +1,37 @@
+<h1 class="text-center my-4">Favoritos</h1>
+
+<div *ngIf="productosFavoritos.length === 0" class="alert alert-info text-center">
+  No hay productos en favoritos.
+</div>
+
+<div *ngIf="productosFavoritos.length > 0" class="container">
+  <table class="table table-bordered table-hover align-middle text-center">
+    <thead class="table-primary">
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productosFavoritos">
+        <td>
+          <img [src]="producto.imagen" alt="{{ producto.nombre }}" width="80" height="80" style="object-fit: cover; border-radius: 8px;">
+        </td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.descripcion }}</td>
+        <td>{{ producto.precio | currency:'USD':'symbol':'1.2-2' }}</td>
+        <td>
+          <button class="btn btn-success btn-sm me-1" (click)="agregarAlCarrito(producto)">
+            <i class="bi bi-cart-plus"></i> Agregar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="eliminarFavorito(producto.id)">
+            <i class="bi bi-trash"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

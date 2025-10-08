@@ -1,0 +1,58 @@
+<h1 class="text-center my-4">Ofertas</h1>
+
+<!-- Formulario que contiene el buscador -->
+<!-- El submit del formulario se previene para no recargar la página -->
+<form class="d-flex justify-content-center mb-4" (submit)="$event.preventDefault()">
+
+  <!-- Campo de texto para ingresar el filtro -->
+  <!-- Usa ngModel para enlace bidireccional con la variable textoFiltroActual -->
+  <!-- Cada vez que cambia el texto, se llama al metodo buscar() -->
+  <input type="text" class="form-control w-50" placeholder="Buscar productos..." [(ngModel)]="textoFiltroActual"
+    (ngModelChange)="buscar()" name="busqueda" />
+
+  <!-- Boton para limpiar el filtro, solo aparece si hay texto -->
+  <!-- Llama al método limpiarFiltro() al hacer click -->
+  <button *ngIf="textoFiltroActual" type="button" class="btn btn-outline-secondary ms-2" (click)="limpiarFiltro()">
+    &times;
+  </button>
+</form>
+
+<!-- Contenedor de las tarjetas de productos -->
+<div class="card-container justify-content-center d-flex flex-wrap">
+  <!-- Si hay productos filtrados, mostrar tarjetas -->
+  <!-- Si no, mostrar el template noResultados -->
+  <ng-container *ngIf="ProductosFiltrados.length > 0; else noResultados">
+
+    <!-- Recorre la lista ProductosFiltrados -->
+    <div *ngFor="let producto of ProductosFiltrados" class="card shadow-sm m-2" style="width: 18rem;">
+      <div *ngIf="producto.disponibilidad" class="card">
+
+        <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="card-img-top product-image" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text flex-grow-1">{{ producto.descripcion }}</p>
+          <p class="card-text fw-bold">{{ producto.precio | currency }}</p>
+          <div class="d-flex justify-content-center gap-2">
+
+            <!-- Botón para agregar al carrito -->
+            <button type="button" class="btn btn-outline-primary" (click)="agregar(producto)">
+              <i class="bi bi-cart-plus"></i>
+            </button>
+
+            <!-- Botón para agregar a favoritos -->
+            <button type="button" class="btn btn-outline-danger" (click)="agregarAFavoritos(producto)">
+              <i class="bi bi-heart"></i>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+
+  <!-- Mensaje centrado cuando no hay productos que coincidan con el filtro -->
+  <ng-template #noResultados>
+    <p class="text-center">No se encontraron productos con esos criterios.</p>
+  </ng-template>
+</div>
