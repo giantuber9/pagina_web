@@ -1,0 +1,48 @@
+<div class="empresa">
+  <h2>Bienvenido</h2>
+  <p class="login-description jojo-theme">
+    Ingresa tu usuario y contraseña y prepárate para activar tu Stand.
+  </p>
+</div>
+
+<div class="login-container">
+  <form class="login-form" (ngSubmit)="onSubmit()">
+    <h2 class="text-center mb-4">Iniciar Sesión</h2>
+
+    <!-- Correo electrónico -->
+    <div class="mb-3">
+      <label for="emailInput" class="form-label">Correo electrónico</label>
+      <input type="email"
+             class="form-control"
+             id="emailInput"
+             [(ngModel)]="email"
+             name="email"
+             required>
+      <div id="emailHelp" class="form-text">
+        No compartiremos ningún dato tuyo a ninguna persona.
+      </div>
+    </div>
+
+    <!-- Contraseña -->
+    <div class="mb-3">
+      <label for="passwordInput" class="form-label">Contraseña</label>
+      <input type="password"
+             class="form-control"
+             id="passwordInput"
+             [(ngModel)]="password"
+             name="password"
+             required>
+    </div>
+
+    <!-- Botón de enviar -->
+    <button type="submit"
+            class="btn btn-primary w-100"
+            [disabled]="!canLogin">
+      Iniciar sesión
+    </button>
+  </form>
+</div>
+
+
+
+

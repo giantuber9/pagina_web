@@ -1,0 +1,129 @@
+/*  Modo oscuro aplicado a todo el body */
+.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*  Estilo del nav en modo oscuro */
+.dark-mode .navbar {
+  background-color: #7224ca !important;
+  transition: background-color 0.3s ease;
+}
+
+/*  Estilo de los enlaces del nav en modo oscuro */
+.dark-mode .nav-link {
+  color: #f0f0f0 !important;
+  transition: color 0.3s ease;
+}
+
+/*  Estilo del boton que alterna entre modo claro y oscuro */
+.dark-mode .btn-outline-light {
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Aplicamos el color claro a los títulos y textos en toda la web */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode a {
+  color: #f0f0f0 !important;
+  transition: color 0.3s ease;
+}
+
+.dark-mode .footer {
+  background-color: #7224ca !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .card {
+  background-color: #000000 !important;
+  color: #f0f0f0 !important;
+  border: 1px solid #444 !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 125%;
+  background-image: url('public/image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1; 
+  transition: background-image 0.3s ease, opacity 0.3s ease;
+}
+
+body.dark-mode::before {
+  background-image: url('public/fondo_pag.png');
+  opacity: 0.5;
+}
+
+/* --- Footer en modo normal (claro) --- */
+.footer {
+  color: #222;
+  font-size: 1.02rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.footer .social-icons a i {
+  color: #444 !important;
+  font-size: 1.02rem;
+  transition: color 0.3s ease;
+}
+
+.footer .social-icons a:hover i {
+  color: #7224ca !important;
+}
+
+/* --- Footer en modo oscuro --- */
+.dark-mode .footer {
+  color: #f0f0f0;
+}
+
+.dark-mode .footer .social-icons a i {
+  color: #f0f0f0 !important;
+}
+
+.dark-mode .footer .social-icons a:hover i {
+  color: #bb86fc !important;
+}
+
+/* Inputs y textarea del formulario */
+.dark-mode .form-control,
+.dark-mode .input-group-text {
+  background-color: #333333 !important;
+  color: #f0f0f0 !important;
+  border-color: #555555 !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Botón enviar en modo oscuro */
+.dark-mode .btn-primary {
+  background-color: #1a73e8 !important;
+  border-color: #1a73e8 !important;
+  color: #ffffff !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Opcional: cambiar el placeholder */
+.dark-mode ::placeholder {
+  color: #cccccc !important;
+  opacity: 1;
+}
+
+/* Cambiar logo en modo oscuro */
+.dark-mode .navbar-logo {
+  content: url('/icono_pag2.jpg');
+  transition: content 0.3s ease;
+}
+
+
